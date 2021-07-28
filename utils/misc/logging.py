@@ -28,3 +28,10 @@ file_logger.setFormatter(logger_formatter)
 client_logger = StreamHandler()
 client_logger.setLevel(logging.DEBUG)
 client_logger.setFormatter(logger_formatter)
+
+
+logger = logging.getLogger(__name__)
+
+logger.setLevel(logging.DEBUG)
+logger.addHandler(file_logger)
+logger.addHandler(client_logger)

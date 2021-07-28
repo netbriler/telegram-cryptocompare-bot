@@ -135,3 +135,5 @@ dmypy.json
 .pyre/
 .idea/*
 .env
+
+data/database.sqlite3

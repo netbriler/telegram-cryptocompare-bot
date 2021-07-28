@@ -1,7 +1,8 @@
 from aiogram.types import Message, InlineQuery, InputTextMessageContent, InlineQueryResultArticle
 
 from loader import dp, bot
-from utils import clean_html, get_price
+from services.cryptocompare import get_price
+from utils import clean_html
 from utils import generate_inline_id
 from utils.misc import rate_limit
 

@@ -15,9 +15,9 @@ class LoggingMiddleware(BaseMiddleware):
     @staticmethod
     async def on_process_message(message: Message, data: dict):
         if message.content_type == 'text':
-            logger.debug(f'from_user: {message.from_user.id} message_id: {message.message_id} text: {message.text}')
+            logger.debug(f'Received message [ID:{message.message_id}] from user [{message.from_user.id}] '
+                         f'text "{message.text}"')
 
     @staticmethod
     async def on_process_inline_query(inline_query: InlineQuery, data: dict):
-        logger.debug(
-            f'from_user: {inline_query.from_user.id} inline_query_id: {inline_query.id} query: {inline_query.query}')
+        logger.debug(f'Received inline query [query:{inline_query.query}] from user [ID:{inline_query.from_user.id}]')
