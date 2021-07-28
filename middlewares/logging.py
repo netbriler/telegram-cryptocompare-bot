@@ -1,7 +1,7 @@
 from aiogram.dispatcher.middlewares import BaseMiddleware
 from aiogram.types import Message, InlineQuery
 
-from loader import logger
+from utils.misc.logging import logger
 
 
 class LoggingMiddleware(BaseMiddleware):

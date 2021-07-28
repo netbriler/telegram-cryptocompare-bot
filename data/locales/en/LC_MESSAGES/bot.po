@@ -1,0 +1,94 @@
+# English translations for bot.
+# Copyright (C) 2021 ORGANIZATION
+# This file is distributed under the same license as the bot project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: bot VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2021-07-28 21:35+0300\n"
+"PO-Revision-Date: 2021-07-28 21:50+0300\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: handlers/users/exchangerates.py:39
+msgid "Не найдено"
+msgstr "Not found"
+
+#: handlers/users/help.py:24
+msgid "🆘 Помощь 🆘"
+msgstr "🆘 Help 🆘"
+
+#: handlers/users/start.py:9
+msgid "\n"
+"Привет, {full_name}!\n"
+"Нажми /help чтобы узнать чем я могу тебе помочь\n"
+"    "
+msgstr "\n"
+"Hi {full_name}!\n"
+"Press /help to find out how I can help you\n"
+"    "
+
+#: keyboards/inline/help.py:9
+msgid "Цена"
+msgstr "Price"
+
+#: keyboards/inline/help.py:10
+msgid "Конвертировать"
+msgstr "Convert"
+
+#: middlewares/throttling.py:36
+msgid "Слишком много запросов!"
+msgstr "Too many requests!"
+
+#: handlers/users/help.py:34
+msgid "\n"
+"<b>🆘 Помощь 🆘</b>\n"
+"\n"
+"<b>🔄 Конвертация 🔄</b>\n"
+"<pre>@cryptocompare_bot [количество] {монета}/{монета}</pre>\n"
+"<pre>@cryptocompare_bot BTC USD</pre>\n"
+"<pre>@cryptocompare_bot 2 Btc usd</pre>\n"
+"<pre>@cryptocompare_bot 4.55 BTC,ETH,DOGE / USD,EUR,RUB</pre>\n"
+"\n"
+"<i>*Монеты для конвертации можно разделять через / либо через пробел, регистр монет не учитывается</i>\n"
+"\n"
+"<b>💰 Цена 💰</b>\n"
+"<pre>@cryptocompare_bot [количество] {монета}</pre>\n"
+"<pre>@cryptocompare_bot BTC</pre>\n"
+"<pre>@cryptocompare_bot 4 BTC</pre>\n"
+"<pre>@cryptocompare_bot BTC,ETH,USD</pre>\n"
+"\n"
+"\n"
+"<b>☎ Контакты ☎</b>\n"
+"@briler\n"
+"    "
+msgstr "\n"
+"<b> 🆘 Help 🆘 </b>\n"
+"\n"
+"<b> 🔄 Conversion 🔄 </b>\n"
+"<pre>@cryptocompare_bot [quantity] {coin} / {coin}</pre>\n"
+"<pre>@cryptocompare_bot BTC USD</pre>\n"
+"<pre>@cryptocompare_bot 2 Btc usd</pre>\n"
+"<pre>@cryptocompare_bot 4.55 BTC, ETH, DOGE / USD, EUR, RUB</pre>\n"
+"\n"
+"<i> *Coins for conversion can be separated by / or by a space, the case of coins is insensitive </i>\n"
+"\n"
+"<b> 💰 Price 💰 </b>\n"
+"<pre>@cryptocompare_bot [quantity] {coin}</pre>\n"
+"<pre>@cryptocompare_bot BTC</pre>\n"
+"<pre>@cryptocompare_bot 4 BTC</pre>\n"
+"<pre>@cryptocompare_bot BTC, ETH, USD</pre>\n"
+"\n"
+"\n"
+"<b> ☎ Contact ☎ </b>\n"
+"@briler\n"
+"    "
+

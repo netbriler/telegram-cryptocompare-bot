@@ -7,3 +7,7 @@ BOT_TOKEN = env_conf("BOT_TOKEN")
 ADMINS = list(map(int, env_conf("ADMINS").split(',')))
 
 SQLALCHEMY_DATABASE_URI = f'sqlite+aiosqlite:///{DIR}/database.sqlite3'
+
+
+I18N_DOMAIN = 'bot'
+LOCALES_DIR = f'{DIR}/locales'

@@ -6,7 +6,7 @@ from pathlib import Path
 
 # Logger setup
 # Set file paths for logger
-log_folder_path = str(Path('logs').absolute())
+log_folder_path = str(Path('data/logs').absolute())
 
 # Creates logs folder if not existent
 if not os.path.exists(log_folder_path):

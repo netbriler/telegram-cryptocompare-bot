@@ -4,7 +4,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from utils.db.models import User
 
 
-async def get_user(session: AsyncSession, id: int,  *args, **props):
+async def get_user(session: AsyncSession, id: int, *args, **props) -> User:
     sql = select(User).where(User.id == id)
     query = await session.execute(sql)
 
@@ -13,8 +13,9 @@ async def get_user(session: AsyncSession, id: int,  *args, **props):
     return user
 
 
-async def create_user(session: AsyncSession, id: int, name: str, username: str = None, *args, **props):
-    new_user = User(id=id, name=name, username=username)
+async def create_user(session: AsyncSession, id: int, name: str, username: str = None, language: str = None, *args,
+                      **props) -> User:
+    new_user = User(id=id, name=name, username=username, language=language)
 
     session.add(new_user)
     await session.commit()
@@ -22,11 +23,11 @@ async def create_user(session: AsyncSession, id: int, name: str, username: str =
     return new_user
 
 
-async def get_or_create_user(session: AsyncSession, id: int, name: str, username: str = None, *args, **props):
+async def get_or_create_user(session: AsyncSession, id: int, name: str, username: str = None, language: str = None,
+                             *args, **props) -> User:
     user = await get_user(session, id)
 
     if user:
         return user
 
-    return await create_user(session, id, name, username)
-
+    return await create_user(session, id, name, username, language)

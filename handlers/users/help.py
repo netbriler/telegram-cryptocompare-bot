@@ -2,7 +2,7 @@ from aiogram.dispatcher.filters.builtin import CommandHelp
 from aiogram.types import Message, InlineQuery, InputTextMessageContent, InlineQueryResultArticle
 
 from keyboards.inline import get_help_inline_markup
-from loader import dp, bot
+from loader import dp, bot, _
 from utils import generate_inline_id
 
 
@@ -21,7 +21,7 @@ async def inline_exchange_rates(inline_query: InlineQuery):
 
     item = InlineQueryResultArticle(
         id=generate_inline_id(inline_query.query),
-        title='🆘 Помощь 🆘',
+        title=_('🆘 Помощь 🆘'),
         description='@cryptocompare_bot BTC\n@cryptocompare_bot 2 BTC USD,EUR',
         thumb_url='https://img.icons8.com/emoji/452/sos-button-emoji.png',
         input_message_content=input_content,
@@ -31,7 +31,7 @@ async def inline_exchange_rates(inline_query: InlineQuery):
 
 
 def get_text():
-    text = '''
+    text = _('''
 <b>🆘 Помощь 🆘</b>
 
 <b>🔄 Конвертация 🔄</b>
@@ -40,7 +40,7 @@ def get_text():
 <pre>@cryptocompare_bot 2 Btc usd</pre>
 <pre>@cryptocompare_bot 4.55 BTC,ETH,DOGE / USD,EUR,RUB</pre>
 
-<i>*Можно записывать через / либо через пробел, регистр не учитывается</i>
+<i>*Монеты для конвертации можно разделять через / либо через пробел, регистр монет не учитывается</i>
 
 <b>💰 Цена 💰</b>
 <pre>@cryptocompare_bot [количество] {монета}</pre>
@@ -51,6 +51,6 @@ def get_text():
 
 <b>☎ Контакты ☎</b>
 @briler
-    '''
+    ''')
 
     return text

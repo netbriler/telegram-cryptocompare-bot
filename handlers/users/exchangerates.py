@@ -1,6 +1,6 @@
 from aiogram.types import Message, InlineQuery, InputTextMessageContent, InlineQueryResultArticle
 
-from loader import dp, bot
+from loader import dp, bot, _
 from services.cryptocompare import get_price
 from utils import clean_html
 from utils import generate_inline_id
@@ -36,7 +36,7 @@ async def inline_exchange_rates(inline_query: InlineQuery, amount, from_coins, t
 
 def get_text(compare: dict, amount: [int, float] = 1):
     if not compare:
-        return 'Не найдено'
+        return _('Не найдено')
 
     text = ''
     for from_coin, to_coins_dict in compare.items():
