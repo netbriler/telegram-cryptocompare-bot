@@ -29,7 +29,6 @@ client_logger = StreamHandler()
 client_logger.setLevel(logging.DEBUG)
 client_logger.setFormatter(logger_formatter)
 
-
 logger = logging.getLogger(__name__)
 
 logger.setLevel(logging.DEBUG)

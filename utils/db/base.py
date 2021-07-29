@@ -12,7 +12,6 @@ async def create_async_database():
     engine = create_async_engine(SQLALCHEMY_DATABASE_URI)
 
     async with engine.begin() as conn:
-        # await conn.run_sync(Base.metadata.drop_all)
         await conn.run_sync(Base.metadata.create_all)
 
     async_session = sessionmaker(

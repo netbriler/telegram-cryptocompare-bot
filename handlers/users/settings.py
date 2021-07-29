@@ -2,13 +2,12 @@ from aiogram.dispatcher.filters.builtin import Regexp
 from aiogram.types import CallbackQuery, Message
 
 from keyboards.inline import get_language_inline_markup
-from loader import dp, _, bot
+from loader import dp, _
 from services.users import edit_user_language
-from .help import get_help_text
 
 
 @dp.callback_query_handler(Regexp('^lang_(\w\w)$'))
-async def change_language(callback_query: CallbackQuery, regexp):
+async def change_language(callback_query: CallbackQuery, regexp: Regexp):
     session = callback_query.bot.get('session')
     language = regexp.group(1)
 

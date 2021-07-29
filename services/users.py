@@ -4,7 +4,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from utils.db.models import User
 
 
-async def get_user(session: AsyncSession, id: int, *args, **props) -> User:
+async def get_user(session: AsyncSession, id: int) -> User:
     sql = select(User).where(User.id == id)
     query = await session.execute(sql)
 

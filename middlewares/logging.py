@@ -5,13 +5,6 @@ from utils.misc.logging import logger
 
 
 class LoggingMiddleware(BaseMiddleware):
-    """
-    Simple logging
-    """
-
-    def __init__(self):
-        super(LoggingMiddleware, self).__init__()
-
     @staticmethod
     async def on_process_message(message: Message, data: dict):
         if message.content_type == 'text':

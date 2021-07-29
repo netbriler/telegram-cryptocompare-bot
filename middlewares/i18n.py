@@ -13,19 +13,18 @@ from aiogram import types
 from aiogram.contrib.middlewares.i18n import I18nMiddleware
 
 from data.config import I18N_DOMAIN, LOCALES_DIR
-from services.users import get_user
+from services.users import get_or_create_user
 
 
 class ACLMiddleware(I18nMiddleware):
     async def get_user_locale(self, action, args):
         current_telegram_user = types.User.get_current()
 
-        user = await get_user(args[0].bot.get('session'), current_telegram_user.id)
+        user = await get_or_create_user(args[0].bot.get('session'), current_telegram_user.id,
+                                        current_telegram_user.full_name, current_telegram_user.username,
+                                        current_telegram_user.language_code)
 
-        if user:
-            return user.language
-
-        return current_telegram_user.locale
+        return user.language
 
 
 i18n = ACLMiddleware(I18N_DOMAIN, LOCALES_DIR)

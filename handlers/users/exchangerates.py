@@ -9,32 +9,27 @@ from utils.misc import rate_limit
 
 @dp.message_handler(exchange_rates=True)
 @rate_limit(.5, 'exchange_rates')
-async def exchange_rates(message: Message, amount, from_coins, to_coins):
+async def exchange_rates(message: Message, amount: [int, float], from_coins: str, to_coins: str):
     compare = get_price(from_coins, to_coins)
 
-    await message.answer(get_text(compare, amount))
+    await message.answer(_get_text(compare, amount))
 
 
 @dp.inline_handler(exchange_rates=True)
-async def inline_exchange_rates(inline_query: InlineQuery, amount, from_coins, to_coins):
+async def inline_exchange_rates(inline_query: InlineQuery, amount: [int, float], from_coins: str, to_coins: str):
     compare = get_price(from_coins, to_coins)
-    text = get_text(compare, amount)
+    text = _get_text(compare, amount)
 
     input_content = InputTextMessageContent(text)
 
-    item = InlineQueryResultArticle(
-        id=generate_inline_id(inline_query.query),
-        title='Cryptocurrency',
-        description=clean_html(text),
-        thumb_url='https://is5-ssl.mzstatic.com/image/thumb/Purple128/v4/2e/d9/ed/2ed9ed62-fa5d-0ce7-8959'
-                  '-e84b11ac049c/source/512x512bb.jpg',
-        input_message_content=input_content,
-    )
+    item = InlineQueryResultArticle(id=generate_inline_id(inline_query.query), title='Cryptocurrency',
+                                    description=clean_html(text), thumb_url='https://shorturl.at/dkrtD',
+                                    input_message_content=input_content)
 
     await bot.answer_inline_query(inline_query.id, results=[item], cache_time=1)
 
 
-def get_text(compare: dict, amount: [int, float] = 1):
+def _get_text(compare: dict, amount: [int, float] = 1) -> str:
     if not compare:
         return _('Не найдено')
 
