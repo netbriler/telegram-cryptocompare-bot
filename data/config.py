@@ -15,7 +15,7 @@ DB_NAME = env_conf('DATABASE_NAME', default=None)
 
 SQLALCHEMY_DATABASE_URI = f'sqlite+aiosqlite:///{DIR}/database.sqlite3'
 
-if DB_USER and DB_PASSWORD and DATABASE_HOST and DB_PORT and DB_NAME:
+if DB_USER and DB_PASSWORD and DB_HOST and DB_PORT and DB_NAME:
     SQLALCHEMY_DATABASE_URI = f'postgresql+asyncpg://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}'
 
 I18N_DOMAIN = 'bot'
