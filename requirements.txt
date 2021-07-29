@@ -3,3 +3,4 @@ cryptocompare
 python-decouple
 SQLAlchemy==1.4.3
 aiosqlite
+asyncpg
