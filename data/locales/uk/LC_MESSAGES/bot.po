@@ -33,7 +33,7 @@ msgstr "Ціна"
 
 #: keyboards/inline/help.py:10
 msgid "Конвертировать"
-msgstr "конвертувати"
+msgstr "Конвертувати"
 
 #: middlewares/throttling.py:36
 msgid "Слишком много запросов!"
@@ -42,7 +42,7 @@ msgstr "Занадто багато запитів!"
 #: handlers/users/settings.py:17
 msgid "Язык успешно изменен \n"
 "Нажми /help чтобы узнать чем я могу тебе помочь"
-msgstr "Мова успішно змінений\n"
+msgstr "Мова успішно змінена\n"
 "Натисни /help щоб дізнатися чим я можу тобі допомогти"
 
 #: handlers/users/settings.py:24
