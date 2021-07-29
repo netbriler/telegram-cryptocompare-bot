@@ -8,14 +8,14 @@ from utils import generate_inline_id
 
 @dp.message_handler(CommandHelp())
 async def bot_help(message: Message):
-    text = get_text()
+    text = get_help_text()
 
     await message.answer(text, reply_markup=get_help_inline_markup())
 
 
 @dp.inline_handler()
 async def inline_exchange_rates(inline_query: InlineQuery):
-    text = get_text()
+    text = get_help_text()
 
     input_content = InputTextMessageContent(text)
 
@@ -30,7 +30,7 @@ async def inline_exchange_rates(inline_query: InlineQuery):
     await bot.answer_inline_query(inline_query.id, results=[item], cache_time=1)
 
 
-def get_text():
+def get_help_text(language=None):
     text = _('''
 <b>🆘 Помощь 🆘</b>
 

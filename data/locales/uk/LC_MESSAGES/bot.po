@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-07-28 21:35+0300\n"
-"PO-Revision-Date: 2021-07-28 21:50+0300\n"
+"POT-Creation-Date: 2021-07-29 17:07+0300\n"
+"PO-Revision-Date: 2021-07-29 17:09+0300\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: uk\n"
 "Language-Team: uk <LL@li.org>\n"
@@ -27,27 +27,27 @@ msgstr "Не знайдено"
 msgid "🆘 Помощь 🆘"
 msgstr "🆘 Допомога 🆘"
 
-#: handlers/users/start.py:9
-msgid "\n"
-"Привет, {full_name}!\n"
-"Нажми /help чтобы узнать чем я могу тебе помочь\n"
-"    "
-msgstr "\n"
-"Привіт, {full_name}!\n"
-"Натисни /help щоб дізнатися чим я можу тобі допомогти\n"
-"    "
-
 #: keyboards/inline/help.py:9
 msgid "Цена"
 msgstr "Ціна"
 
 #: keyboards/inline/help.py:10
 msgid "Конвертировать"
-msgstr "Конвертувати"
+msgstr "конвертувати"
 
 #: middlewares/throttling.py:36
 msgid "Слишком много запросов!"
 msgstr "Занадто багато запитів!"
+
+#: handlers/users/settings.py:17
+msgid "Язык успешно изменен \n"
+"Нажми /help чтобы узнать чем я могу тебе помочь"
+msgstr "Мова успішно змінений\n"
+"Натисни /help щоб дізнатися чим я можу тобі допомогти"
+
+#: handlers/users/settings.py:24
+msgid "Выбери свой язык"
+msgstr "Обери свою мову"
 
 #: handlers/users/help.py:34
 msgid "\n"
@@ -92,4 +92,10 @@ msgstr "\n"
 "<b>☎ Контакти ☎</b>\n"
 "@briler\n"
 "    "
+
+#: handlers/users/start.py:11
+msgid "Привет, {full_name}!\n"
+"Выбери свой язык"
+msgstr "Привіт, {full_name}!\n"
+"Обери свою мову"
 

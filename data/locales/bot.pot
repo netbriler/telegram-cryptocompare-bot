@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-07-28 21:57+0300\n"
+"POT-Creation-Date: 2021-07-29 17:26+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -51,12 +51,20 @@ msgid ""
 "    "
 msgstr ""
 
-#: handlers/users/start.py:9
+#: handlers/users/settings.py:17
 msgid ""
-"\n"
+"Язык успешно изменен \n"
+"Нажми /help чтобы узнать чем я могу тебе помочь"
+msgstr ""
+
+#: handlers/users/settings.py:24
+msgid "Выбери свой язык"
+msgstr ""
+
+#: handlers/users/start.py:11
+msgid ""
 "Привет, {full_name}!\n"
-"Нажми /help чтобы узнать чем я могу тебе помочь\n"
-"    "
+"Выбери свой язык"
 msgstr ""
 
 #: keyboards/inline/help.py:9
