@@ -2,6 +2,7 @@ from sqlalchemy import select, update
 from sqlalchemy.ext.asyncio import AsyncSession
 
 from utils.db.models import User
+from utils.misc.logging import logger
 
 
 async def get_user(session: AsyncSession, id: int) -> User:
@@ -34,6 +35,8 @@ async def create_user(session: AsyncSession, id: int, name: str, username: str =
 
     session.add(new_user)
     await session.commit()
+
+    logger.info(f'New user {new_user}')
 
     return new_user
 

@@ -26,8 +26,7 @@ file_logger.setFormatter(logger_formatter)
 
 # Set up stream handler for client output
 client_logger = StreamHandler()
-client_logger.setLevel(logging.DEBUG)
-client_logger.setFormatter(logger_formatter)
+client_logger.setLevel(logging.INFO)
 
 logger = logging.getLogger(__name__)
 
