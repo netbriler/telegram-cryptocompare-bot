@@ -1,0 +1,31 @@
+version: '3.1'
+
+services:
+
+  bot:
+    build: .
+    restart: always
+    ports:
+      - '8000:8000'
+    entrypoint:
+      - ./entrypoint.sh
+    volumes:
+      - .:/usr/src/app/
+    depends_on:
+      - postgres
+    environment:
+      ADMINS: ${ADMINS}
+      BOT_TOKEN: ${BOT_TOKEN}
+
+      DATABASE_USER: postgres
+      DATABASE_PASS: postgres
+      DATABASE_HOST: postgres
+      DATABASE_PORT: 5432
+
+      DATABASE_NAME: postgres
+
+  postgres:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: postgres
