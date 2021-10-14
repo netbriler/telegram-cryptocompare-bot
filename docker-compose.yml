@@ -6,11 +6,11 @@ services:
     build: .
     restart: always
     ports:
-      - '8000:8000'
+      - '${PORT:-8000}:8000'
     entrypoint:
       - ./entrypoint.sh
     volumes:
-      - .:/usr/src/app/
+      - ./data/logs:/usr/src/app/data/logs
     depends_on:
       - postgres
     environment:
@@ -29,3 +29,31 @@ services:
     restart: always
     environment:
       POSTGRES_PASSWORD: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+
+  postgres_backups:
+    image: prodrigestivill/postgres-backup-local
+    restart: always
+    volumes:
+      - postgres_backups:/backups
+    links:
+      - postgres
+    depends_on:
+      - postgres
+    environment:
+      - POSTGRES_HOST=postgres
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_EXTRA_OPTS=-Z6 --schema=public --blobs
+      - SCHEDULE=@daily
+      - BACKUP_KEEP_DAYS=7
+      - BACKUP_KEEP_WEEKS=4
+      - BACKUP_KEEP_MONTHS=6
+      - HEALTHCHECK_PORT=8080
+
+
+volumes:
+  postgres_data:
+  postgres_backups:
