@@ -18,5 +18,9 @@ SQLALCHEMY_DATABASE_URI = f'sqlite+aiosqlite:///{DIR}/database.sqlite3'
 if DB_USER and DB_PASSWORD and DB_HOST and DB_PORT and DB_NAME:
     SQLALCHEMY_DATABASE_URI = f'postgresql+asyncpg://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}'
 
+
+REDIS_HOST = env_conf('REDIS_HOST', default=None)
+REDIS_PORT = env_conf('REDIS_PORT', default=None)
+
 I18N_DOMAIN = 'bot'
 LOCALES_DIR = f'{DIR}/locales'

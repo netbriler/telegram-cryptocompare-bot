@@ -13,6 +13,7 @@ services:
       - ./data/logs:/usr/src/app/data/logs
     depends_on:
       - postgres
+      - redis
     environment:
       ADMINS: ${ADMINS}
       BOT_TOKEN: ${BOT_TOKEN}
@@ -24,6 +25,18 @@ services:
 
       DATABASE_NAME: postgres
 
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+
+  redis:
+    image: redis:alpine
+    command: redis-server
+    volumes:
+      - redis_data:/var/lib/redis
+      - redis_conf:/usr/local/etc/redis/redis.conf
+    environment:
+      - REDIS_REPLICATION_MODE=master
+
   postgres:
     image: postgres
     restart: always
@@ -32,28 +45,8 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data/
 
-  postgres_backups:
-    image: prodrigestivill/postgres-backup-local
-    restart: always
-    volumes:
-      - postgres_backups:/backups
-    links:
-      - postgres
-    depends_on:
-      - postgres
-    environment:
-      - POSTGRES_HOST=postgres
-      - POSTGRES_DB=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-      - POSTGRES_EXTRA_OPTS=-Z6 --schema=public --blobs
-      - SCHEDULE=@daily
-      - BACKUP_KEEP_DAYS=7
-      - BACKUP_KEEP_WEEKS=4
-      - BACKUP_KEEP_MONTHS=6
-      - HEALTHCHECK_PORT=8080
-
 
 volumes:
+  redis_data:
+  redis_conf:
   postgres_data:
-  postgres_backups:
