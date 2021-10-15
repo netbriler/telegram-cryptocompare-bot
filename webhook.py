@@ -14,16 +14,20 @@ WEBHOOK_PATH = config.WEBHOOK_PATH
 WEBHOOK_URL = f"{WEBHOOK_HOST}{WEBHOOK_PATH}"
 
 # webserver settings
-WEBAPP_HOST = 'localhost'
+WEBAPP_HOST = '0.0.0.0'
 WEBAPP_PORT = 8000
 
 
 async def on_startup(dp):
     logger.info('Bot startup')
     logger.info(f'{WEBHOOK_URL=}')
+
     await bot.set_webhook(WEBHOOK_URL)
 
     bot['session'] = await create_async_database()
+
+    for admin_id in config.ADMINS:
+        await bot.send_message(admin_id, 'Бот успешно запущен')
 
 
 async def on_shutdown(dp):
