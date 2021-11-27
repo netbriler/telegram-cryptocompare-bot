@@ -1,22 +1,30 @@
-FROM python:3.9-alpine
+# Этап, на котором выполняются подготовительные действия
+FROM python:3.9-slim as builder
+
+WORKDIR /app
 
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-WORKDIR /usr/src/app
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends gcc libc-dev libffi-dev python3-dev musl-dev
 
-RUN apk --update add
-RUN apk add gcc libc-dev libffi-dev jpeg-dev zlib-dev libjpeg python3-dev build-base musl-dev
-RUN apk add postgresql-dev
+COPY requirements.txt .
+RUN pip wheel --no-cache-dir --no-deps --wheel-dir /app/wheels -r requirements.txt
 
-RUN pip install --upgrade pip
+# Финальный этап
+FROM python:3.9-slim
 
-COPY ./requirements.txt .
-COPY ./entrypoint.sh .
+WORKDIR /app
 
-RUN chmod +x entrypoint.sh
+RUN addgroup --system app && adduser --system --group app
 
-RUN pip install -r requirements.txt
+USER app
+
+COPY --from=builder /app/wheels /wheels
+COPY --from=builder /app/requirements.txt .
+
+RUN pip install --no-cache /wheels/*
 
 COPY . .
 
