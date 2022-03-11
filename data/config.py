@@ -21,6 +21,7 @@ if DB_USER and DB_PASSWORD and DB_HOST and DB_PORT and DB_NAME:
 
 REDIS_HOST = env_conf('REDIS_HOST', default=None)
 REDIS_PORT = env_conf('REDIS_PORT', default=None)
+REDIS_DB = env_conf('REDIS_PORT', default=5)
 
 WEBHOOK_HOST = env_conf('WEBHOOK_HOST', default=None)
 WEBHOOK_PATH = env_conf('WEBHOOK_PATH', default=None)

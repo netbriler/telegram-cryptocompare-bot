@@ -37,7 +37,7 @@ def _get_text(compare: dict, amount: [int, float] = 1) -> str:
     for from_coin, to_coins_dict in compare.items():
 
         for key, value in to_coins_dict.items():
-            text += f'<pre>{amount} {from_coin} = <b>{round(value * amount, 12)}</b> {key}</pre>\n'
+            text += f'<code>{amount} {from_coin} = <b>{round(value * amount, 12)}</b> {key}</code>\n'
 
         text += '\n'
 

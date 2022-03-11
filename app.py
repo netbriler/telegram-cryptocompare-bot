@@ -1,8 +1,12 @@
+import logging
+
 from aiogram import executor
 
 from loader import dp, bot, config
 from utils.db.base import create_async_database
 from utils.misc.logging import logger
+
+logging.basicConfig(level=logging.INFO)
 
 
 async def on_startup(dispatcher):
