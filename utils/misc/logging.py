@@ -1,5 +1,5 @@
 from pathlib import Path
-
+import sys
 from loguru import logger
 
 log_file_path = Path(__file__).absolute().parent.parent.parent / 'data/logs/log.out'
