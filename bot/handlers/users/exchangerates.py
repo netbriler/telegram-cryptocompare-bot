@@ -31,7 +31,7 @@ async def inline_exchange_rates(inline_query: InlineQuery, amount: [int, float],
 
 def _get_text(compare: dict, amount: [int, float] = 1) -> str:
     if not compare:
-        return _('Не найдено')
+        return _('Not found')
 
     text = ''
     for from_coin, to_coins_dict in compare.items():

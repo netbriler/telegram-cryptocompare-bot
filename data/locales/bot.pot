@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2022-04-04 13:47+0300\n"
+"POT-Creation-Date: 2022-04-04 14:04+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -54,7 +54,7 @@ msgid "Active users: {count}"
 msgstr ""
 
 #: bot/handlers/users/exchangerates.py:34
-msgid "Не найдено"
+msgid "Not found"
 msgstr ""
 
 #: bot/handlers/users/help.py:27 bot/keyboards/default/default.py:9
@@ -104,8 +104,8 @@ msgstr ""
 
 #: bot/handlers/users/start.py:10
 msgid ""
-"Привет, {full_name}!\n"
-"Выбери свой язык"
+"Hi {full_name}!\n"
+"Choose your language"
 msgstr ""
 
 #: bot/keyboards/default/default.py:9
