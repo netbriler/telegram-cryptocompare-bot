@@ -4,19 +4,22 @@ $(eval $(RUN_ARGS):;@:)
 BACKUPS_PATH := ./data/backups/postgres
 
 run:
-	docker-compose -f docker-compose.yml up --build -d
+	docker-compose up -d --force-recreate
+
+build:
+	docker-compose build --no-cache
 
 psql:
 	docker-compose exec postgres psql -U postgres postgres
 
 pg_dump:
-	docker-compose exec -T postgres pg_dump -U postgres postgres --no-owner \
-	| gzip -9 > data/backups/postgres/backup-$(shell date +%Y-%m-%d_%H-%M-%S).sql.gz
+	mkdir -p ./data/backups/postgres && docker-compose exec -T postgres pg_dump -U postgres postgres --no-owner \
+	| gzip -9 > ./data/backups/postgres/backup-$(shell date +%Y-%m-%d_%H-%M-%S).sql.gz
 
 pg_restore:
-	bash ./bin/pg_restore.sh ${BACKUPS_PATH}
+	mkdir -p ./data/backups/postgres && bash ./bin/pg_restore.sh ${BACKUPS_PATH}
 
-bot:
+exec:
 	docker-compose exec bot /bin/bash
 
 logs:
@@ -25,8 +28,23 @@ logs:
 restart:
 	docker-compose restart bot
 
+stop:
+	docker-compose stop
 
-# docker-compose exec postgres /bin/bash -c "psql -U postgres postgres" < zcat data/backups/postgres/backup-2022-03-13_13-47-23.sql.gz
+db_revision:
+	docker-compose exec bot alembic revision --autogenerate ${RUN_ARGS}
 
-#zcat data/backups/postgres/backup-2022-03-13_13-47-23.sql.gz | docker-compose exec -T postgres /bin/bash -c "psql -U postgres postgres"
-#docker-compose exec -T postgres pg_dump -U postgres postgres --no-owner | docker-compose exec -T postgres /bin/bash -c "psql -U postgres postgres"
+db_upgrade:
+	docker-compose exec bot alembic upgrade head
+
+pybabel_extract:
+	pybabel extract --input-dirs=. -o ./data/locales/bot.pot --project=bot
+
+pybabel_init:
+	pybabel init -i ./data/locales/bot.pot -d ./data/locales -D bot -l ${RUN_ARGS}
+
+pybabel_compile:
+	pybabel compile -d ./data/locales -D bot --statistics
+
+pybabel_update:
+	pybabel update -i ./data/locales/bot.pot -d ./data/locales -D bot

@@ -1,14 +1,14 @@
 # Ukrainian translations for bot.
-# Copyright (C) 2021 ORGANIZATION
+# Copyright (C) 2022 ORGANIZATION
 # This file is distributed under the same license as the bot project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2021.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: bot VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2021-07-29 17:07+0300\n"
-"PO-Revision-Date: 2021-07-29 17:09+0300\n"
+"POT-Creation-Date: 2022-04-04 13:47+0300\n"
+"PO-Revision-Date: 2022-03-14 15:46+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: uk\n"
 "Language-Team: uk <LL@li.org>\n"
@@ -19,83 +19,143 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.9.1\n"
 
-#: handlers/users/exchangerates.py:39
+#: bot/commands/admin.py:11
+msgid "export users to csv"
+msgstr "експортувати користувачів у файл csv"
+
+#: bot/commands/admin.py:12
+msgid "count users who contacted the bot"
+msgstr "кількість користувачів, які зв’язалися з ботом"
+
+#: bot/commands/admin.py:13
+msgid "count active users (who didn't block the bot)"
+msgstr "кількість активних користувачів (хто не заблокував бота)"
+
+#: bot/commands/default.py:8
+msgid "start bot"
+msgstr "запустити бота"
+
+#: bot/commands/default.py:9
+msgid "how it works?"
+msgstr "як це працює?"
+
+#: bot/commands/default.py:10
+msgid "change language"
+msgstr "змінити мову"
+
+#: bot/commands/default.py:11
+msgid "open bot settings"
+msgstr "відкрити налаштування бота"
+
+#: bot/handlers/users/admin_menu.py:25 bot/handlers/users/admin_menu.py:33
+msgid "Total users: {count}"
+msgstr "Усього користувачів: {count}"
+
+#: bot/handlers/users/admin_menu.py:49
+msgid "Active users: {count}"
+msgstr "Активних користувачів: {count}"
+
+#: bot/handlers/users/exchangerates.py:34
 msgid "Не найдено"
-msgstr "Не знайдено"
+msgstr ""
 
-#: handlers/users/help.py:24
-msgid "🆘 Помощь 🆘"
-msgstr "🆘 Допомога 🆘"
+#: bot/handlers/users/help.py:27 bot/keyboards/default/default.py:9
+msgid "Help 🆘"
+msgstr "Допомога 🆘"
 
-#: keyboards/inline/help.py:9
-msgid "Цена"
+#: bot/handlers/users/help.py:39
+msgid "<b>Commands 📝</b>\n"
+msgstr "<b>Команди 📝</b>\n"
+
+#: bot/handlers/users/help.py:45
+msgid ""
+"<b>Help 🆘</b>\n"
+"\n"
+"{commands}<b>Price 💰</b>\n"
+"<code>@cryptocompare_bot [quantity] coin</code>\n"
+"<code>@cryptocompare_bot BTC</code>\n"
+"<code>@cryptocompare_bot 4 BTC</code>\n"
+"<code>@cryptocompare_bot BTC,ETH,USD</code>\n"
+"\n"
+"<b>Conversion 🔄</b>\n"
+"<code>@cryptocompare_bot [quantity] coin / coin</code>\n"
+"<code>@cryptocompare_bot BTC USD</code>\n"
+"<code>@cryptocompare_bot 2 Btc usd</code>\n"
+"<code>@cryptocompare_bot 4.55 BTC,ETH,DOGE / USD,EUR,UAH</code>\n"
+"\n"
+"<i>*coins for conversion can be separated by / or by a space, the case of"
+" coins is insensitive </i>\n"
+"\n"
+"<b>Contact ☎</b>\n"
+"@briler"
+msgstr ""
+"<b>Допомога 🆘</b>\n"
+"\n"
+"{commands}<b>Ціна 💰</b>\n"
+"<code>@cryptocompare_bot [quantity] coin</code>\n"
+"<code>@cryptocompare_bot BTC</code>\n"
+"<code>@cryptocompare_bot 4 BTC</code>\n"
+"<code>@cryptocompare_bot BTC,ETH,USD</code>\n"
+"\n"
+"<b>Конвертація 🔄</b>\n"
+"<code>@cryptocompare_bot [quantity] coin / coin</code>\n"
+"<code>@cryptocompare_bot BTC USD</code>\n"
+"<code>@cryptocompare_bot 2 Btc usd</code>\n"
+"<code>@cryptocompare_bot 4.55 BTC,ETH,DOGE / USD,EUR,UAH</code>\n"
+"\n"
+"<i>*Монети для конвертації можна розділяти через / або через пробіл, "
+"регістр монет не враховується</i>\n"
+"\n"
+"<b>Контакти ☎</b>\n"
+"@briler"
+
+#: bot/handlers/users/helpers.py:10
+msgid "Choose an action from the menu 👇"
+msgstr "Виберіть дію у меню 👇"
+
+#: bot/handlers/users/settings.py:22
+msgid ""
+"Language changed successfully\n"
+"Press /help to find out how I can help you"
+msgstr ""
+"Мова успішно змінена\n"
+"Натисни /help щоб дізнатися чим я можу вам допомогти"
+
+#: bot/handlers/users/settings.py:31
+msgid "Choose your language"
+msgstr "Оберіть свою мову"
+
+#: bot/handlers/users/start.py:10
+msgid ""
+"Привет, {full_name}!\n"
+"Выбери свой язык"
+msgstr ""
+
+#: bot/keyboards/default/default.py:9
+msgid "Settings 🛠"
+msgstr "Налаштування 🛠"
+
+#: bot/keyboards/default/default.py:12
+msgid "Export users 📁"
+msgstr "Експорт користувачів 📁"
+
+#: bot/keyboards/default/default.py:13
+msgid "Count users 👥"
+msgstr "Кількість користувачів 👥"
+
+#: bot/keyboards/default/default.py:14
+msgid "Count active users 👥"
+msgstr "Кількість активних користувачів 👥"
+
+#: bot/keyboards/inline/help.py:9
+msgid "Price"
 msgstr "Ціна"
 
-#: keyboards/inline/help.py:10
-msgid "Конвертировать"
+#: bot/keyboards/inline/help.py:10
+msgid "Convert"
 msgstr "Конвертувати"
 
-#: middlewares/throttling.py:36
-msgid "Слишком много запросов!"
+#: bot/middlewares/throttling.py:35
+msgid "Too many requests!"
 msgstr "Занадто багато запитів!"
-
-#: handlers/users/settings.py:17
-msgid "Язык успешно изменен \n"
-"Нажми /help чтобы узнать чем я могу тебе помочь"
-msgstr "Мова успішно змінена\n"
-"Натисни /help щоб дізнатися чим я можу тобі допомогти"
-
-#: handlers/users/settings.py:24
-msgid "Выбери свой язык"
-msgstr "Обери свою мову"
-
-#: handlers/users/help.py:34
-msgid "\n"
-"<b>🆘 Помощь 🆘</b>\n"
-"\n"
-"<b>🔄 Конвертация 🔄</b>\n"
-"<pre>@cryptocompare_bot [количество] {монета}/{монета}</pre>\n"
-"<pre>@cryptocompare_bot BTC USD</pre>\n"
-"<pre>@cryptocompare_bot 2 Btc usd</pre>\n"
-"<pre>@cryptocompare_bot 4.55 BTC,ETH,DOGE / USD,EUR,RUB</pre>\n"
-"\n"
-"<i>*Монеты для конвертации можно разделять через / либо через пробел, регистр монет не учитывается</i>\n"
-"\n"
-"<b>💰 Цена 💰</b>\n"
-"<pre>@cryptocompare_bot [количество] {монета}</pre>\n"
-"<pre>@cryptocompare_bot BTC</pre>\n"
-"<pre>@cryptocompare_bot 4 BTC</pre>\n"
-"<pre>@cryptocompare_bot BTC,ETH,USD</pre>\n"
-"\n"
-"\n"
-"<b>☎ Контакты ☎</b>\n"
-"@briler\n"
-"    "
-msgstr "\n"
-"<b>🆘 Допомога 🆘</b>\n"
-"\n"
-"<b>🔄 Конвертація 🔄</b>\n"
-"<pre>@cryptocompare_bot [кількість] {монета} / {монета}</pre>\n"
-"<pre>@cryptocompare_bot BTC USD</pre>\n"
-"<pre>@cryptocompare_bot 2 Btc usd</pre>\n"
-"<pre>@cryptocompare_bot 4.55 BTC,ETH,DOGE / USD,EUR,RUB</pre>\n"
-"\n"
-"<i>*Монети для конвертації можна розділяти через / або через пробіл, регістр монет не враховується</i>\n"
-"\n"
-"<b>💰 Ціна 💰</b>\n"
-"<pre>@cryptocompare_bot [кількість] {монета}</pre>\n"
-"<pre>@cryptocompare_bot BTC</pre>\n"
-"<pre>@cryptocompare_bot 4 BTC</pre>\n"
-"<pre>@cryptocompare_bot BTC,ETH,USD</pre>\n"
-"\n"
-"\n"
-"<b>☎ Контакти ☎</b>\n"
-"@briler\n"
-"    "
-
-#: handlers/users/start.py:11
-msgid "Привет, {full_name}!\n"
-"Выбери свой язык"
-msgstr "Привіт, {full_name}!\n"
-"Обери свою мову"
 

@@ -5,18 +5,17 @@ services:
   bot:
     build: .
     restart: always
-    ports:
-      - '${PORT:-8000}:8000'
+#    ports:
+#      - '${WEBHOOK_PORT}:${WEBHOOK_PORT:-8000}'
     entrypoint:
       - ./bin/entrypoint.sh
-    volumes:
-      - ./data/logs:/app/data/logs
     depends_on:
       - postgres
       - redis
     environment:
       ADMINS: ${ADMINS}
       BOT_TOKEN: ${BOT_TOKEN}
+      RATE_LIMIT: ${RATE_LIMIT:-0.5}
 
       DATABASE_USER: postgres
       DATABASE_PASS: postgres
@@ -29,15 +28,13 @@ services:
       REDIS_PORT: 6379
       REDIS_DB: 5
 
+      WEBHOOK_PORT: ${WEBHOOK_PORT}
       WEBHOOK_HOST: ${WEBHOOK_HOST:-localhost}
       WEBHOOK_PATH: ${WEBHOOK_PATH}
 
   redis:
     image: redis:alpine
     command: redis-server
-    volumes:
-      - redis_data:/var/lib/redis
-      - redis_conf:/usr/local/etc/redis/redis.conf
     environment:
       - REDIS_REPLICATION_MODE=master
 
@@ -51,6 +48,4 @@ services:
 
 
 volumes:
-  redis_data:
-  redis_conf:
   postgres_data:
